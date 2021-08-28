@@ -61,36 +61,36 @@ class Professor extends Pessoa
 	}
 
   public function editarProfessor(array $professor):bool
-    {
-        $conn = new Conn();
-        $conexao = $conn->connect();
-        
-        $sql = "UPDATE pessoa 
-                SET nome=:nome, telefone=:telefone, email=:email, data_nascimento=:data_nascimento
-                WHERE ID=:id";
-        $result = $conexao->prepare($sql);
-        $resultStatus = $result->execute(array(
-          ':nome' => $professor['nome'],
-          ':telefone' => $professor['telefone'],
-          ':email' => $professor['email'],
-          ':data_nascimento' => $professor['data_nascimento'],
-          ':id' => $professor['id']
-        ));
-        
-        if ($resultStatus) {
-            $sql = "UPDATE professor
-                    SET especialidade=:especialidade, salario=:salario
-                    WHERE pessoa_id=:id";
-            $result = $conexao->prepare($sql);
-            $resultStatus = $result->execute(array(':especialidade' => $professor['especialidade'], ':salario' => $professor['salario'], ':id' => $professor['id']));
-            
-            if ($resultStatus) {
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
-        }
+  {
+    $conn = new Conn();
+    $conexao = $conn->connect();
+    
+    $sql = "UPDATE pessoa 
+            SET nome=:nome, telefone=:telefone, email=:email, data_nascimento=:data_nascimento
+            WHERE ID=:id";
+    $result = $conexao->prepare($sql);
+    $resultStatus = $result->execute(array(
+      ':nome' => $professor['nome'],
+      ':telefone' => $professor['telefone'],
+      ':email' => $professor['email'],
+      ':data_nascimento' => $professor['data_nascimento'],
+      ':id' => $professor['id']
+    ));
+    
+    if ($resultStatus) {
+      $sql = "UPDATE professor
+              SET especialidade=:especialidade, salario=:salario
+              WHERE pessoa_id=:id";
+      $result = $conexao->prepare($sql);
+      $resultStatus = $result->execute(array(':especialidade' => $professor['especialidade'], ':salario' => $professor['salario'], ':id' => $professor['id']));
+      
+      if ($resultStatus) {
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
     }
+  }
 }

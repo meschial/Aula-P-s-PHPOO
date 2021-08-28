@@ -44,7 +44,7 @@
                 </p>
                 <p>
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input type="text" name="data_nascimento" value="<?=$estudanteDados->data_nascimento?>">
+                    <input type="date" name="data_nascimento" value="<?=$estudanteDados->data_nascimento?>">
                 </p>
                 <p>
                     <label for="matricula">Matrícula</label>

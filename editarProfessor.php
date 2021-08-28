@@ -44,7 +44,7 @@
                 </p>
                 <p>
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input type="text" name="data_nascimento" value="<?=$professorDados->data_nascimento?>">
+                    <input type="date" name="data_nascimento" value="<?=$professorDados->data_nascimento?>">
                 </p>
                 <p>
                     <label for="salario">Salario</label>

@@ -17,7 +17,6 @@
         if (!empty($formData)) {
             $estudante = new Estudante($formData['email']);
             $cadastro = $estudante->criarEstudante($formData);
-            var_dump($cadastro);
             if ($cadastro) {
                 echo 'Estudante Cadastrado com Sucesso';
             } else {
@@ -40,7 +39,7 @@
         </p>
         <p>
             <label for="dataNascimento">Data de Nascimento</label>
-            <input type="text" name="data_nascimento" id="">
+            <input type="date" name="data_nascimento" id="">
         </p>
         <p>
             <label for="matricula">Matrícula</label>
